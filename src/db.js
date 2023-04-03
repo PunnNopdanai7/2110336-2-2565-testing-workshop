@@ -1,4 +1,9 @@
 const mongoose = require("mongoose");
+const fs = require("fs");
+const User = require("./models/user.model");
+
+const data = fs.readFileSync("./data/users.json");
+const jsonData = JSON.parse(data);
 
 const connectDB = async () => {
   console.log("Connecting to MongoDB...");
@@ -12,8 +17,28 @@ const connectDB = async () => {
   mongoose.set("strictQuery", false);
   await mongoose
     .connect(URI)
-    .then((res) => {
+    .then(async (res) => {
+      console.log(jsonData[0]._id);
       console.log(`MongoDB Connected: ${res.connection.host}`);
+      console.log("Seeding data...");
+      const result = await User.collection.bulkWrite(
+        jsonData.map((user) => ({
+          updateOne: {
+            filter: { username: user.username },
+            update: {
+              $setOnInsert: {
+                username: user.username,
+                password: user.password,
+                role: user.role,
+              },
+            },
+            upsert: true,
+          },
+        }))
+      );
+
+      console.log(result);
+      console.log("Data seeded successfully");
     })
     .catch((err) => {
       console.log(`Error: ${err?.message}`);

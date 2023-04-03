@@ -1,0 +1,32 @@
+[
+  {
+    "username": "user1",
+    "password": "$2a$10$xwMIsz6MPRv1f6OkJ4o43.XE1h8.DhHAwW1Q3Pdpm/PPrgax8gHaC",
+    "role": "USER"
+  },
+  {
+    "username": "user2",
+    "password": "$2a$10$9hoFeZq.RRGZkLJGVB9aCOGlZlsHIeYagDLesRJtuw7./EQKLlyRu",
+    "role": "USER"
+  },
+  {
+    "username": "admin1",
+    "password": "$2a$10$tepM2fIyw0s.t6BpX9czceG.SxtrPojdCkajthw6MVCcPy9g6J3wy",
+    "role": "ADMIN"
+  },
+  {
+    "username": "admin2",
+    "password": "$2a$10$5srqtYYvABQHuBZ7l21YHuWyWLEvyj.Vm9eLell5Ro2Jo2PjdUY4C",
+    "role": "ADMIN"
+  },
+  {
+    "username": "super1",
+    "password": "$2a$10$jwzGZ7eI75jl2eErkzTY7uODbrgIwUDgTj/tFGliBaCowN4XysLyW",
+    "role": "SUPER_ADMIN"
+  },
+  {
+    "username": "super2",
+    "password": "$2a$10$15/P6hfjH6K3pCugzaKZA.Wdg1OE0WnmalEE0cu0iYLs7G22kokQO",
+    "role": "SUPER_ADMIN"
+  }
+]
