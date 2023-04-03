@@ -36,7 +36,6 @@ const connectDB = async () => {
         }))
       );
 
-      console.log(result);
       console.log("Data seeded successfully");
     })
     .catch((err) => {
