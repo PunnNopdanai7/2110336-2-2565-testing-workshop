@@ -18,7 +18,6 @@ const connectDB = async () => {
   await mongoose
     .connect(URI)
     .then(async (res) => {
-      console.log(jsonData[0]._id);
       console.log(`MongoDB Connected: ${res.connection.host}`);
       console.log("Seeding data...");
       const result = await User.collection.bulkWrite(
@@ -26,7 +25,7 @@ const connectDB = async () => {
           updateOne: {
             filter: { username: user.username },
             update: {
-              $setOnInsert: {
+              $set: {
                 username: user.username,
                 password: user.password,
                 role: user.role,
