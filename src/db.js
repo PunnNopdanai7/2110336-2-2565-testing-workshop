@@ -20,7 +20,7 @@ const connectDB = async () => {
     .then(async (res) => {
       console.log(`MongoDB Connected: ${res.connection.host}`);
       console.log("Seeding data...");
-      const result = await User.collection.bulkWrite(
+      await User.collection.bulkWrite(
         jsonData.map((user) => ({
           updateOne: {
             filter: { username: user.username },
