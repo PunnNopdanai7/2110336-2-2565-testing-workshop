@@ -4,22 +4,22 @@ networks:
   se-net: {}
 
 services:
-  # app:
-  #   build: ./src
-  #   container_name: se-app
-  #   restart: always
-  #   environment:
-  #     PORT: ${PORT}
-  #     MONGO_USER: ${MONGO_USER}
-  #     MONGO_PASSWORD: ${MONGO_PASSWORD}
-  #     MONGO_HOST: ${MONGO_HOST}
-  #     MONGO_PORT: ${MONGO_PORT}
-  #   ports:
-  #     - "8080:8080"
-  #   depends_on:
-  #     - mongo
-  #   networks:
-  #     - se-net
+  app:
+    build: ./src
+    container_name: se-app
+    restart: always
+    environment:
+      PORT: ${PORT}
+      MONGO_USER: ${MONGO_USER}
+      MONGO_PASSWORD: ${MONGO_PASSWORD}
+      MONGO_HOST: ${MONGO_HOST}
+      MONGO_PORT: ${MONGO_PORT}
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    networks:
+      - se-net
   mongo:
     image: mongo
     container_name: se-mongo
