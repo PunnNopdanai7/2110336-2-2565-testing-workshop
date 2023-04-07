@@ -12,7 +12,7 @@ exports.login = async (req, res) => {
       });
     }
 
-    const user = (await User.findOne({ username }))?.select("+password");
+    const user = await User.findOne({ username });
 
     if (!user) {
       return res.status(401).json({
@@ -43,8 +43,6 @@ exports.login = async (req, res) => {
       message: "Logged in successfully",
     });
   } catch (error) {
-    console.error(error);
-
     const { message } = error ?? {};
     res.status(500).json({
       success: false,
@@ -76,8 +74,6 @@ exports.register = async (req, res) => {
       message: "User created successfully",
     });
   } catch (error) {
-    console.error(error);
-
     const { message } = error ?? {};
     res.status(500).json({
       success: false,

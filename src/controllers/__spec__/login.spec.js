@@ -1,19 +1,20 @@
 const request = require("supertest");
-const User = require("../models/user.model");
-const app = require("../app");
+const User = require("../../models/user.model");
+const app = require("../../app");
+const userRoles = require("../../utils/enum");
 
-jest.mock("../models/user.model");
+jest.mock("../../models/user.model");
 
 const user1 = {
   username: "user1",
   password: "user1",
-  role: "USER",
+  role: userRoles.USER,
 };
 
 const nonexistentuser = {
   username: "nonexistentuser",
   password: "nonexistentpassword",
-  role: "USER",
+  role: userRoles.USER,
 };
 
 describe("POST /login", () => {
@@ -131,7 +132,6 @@ describe("POST /login", () => {
       beforeAll(async () => {
         User.findOne = jest.fn().mockReturnValue({
           ...user1,
-          select: jest.fn().mockReturnThis(),
           matchPassword: jest.fn().mockResolvedValue(false),
         });
 
@@ -185,7 +185,6 @@ describe("POST /login", () => {
       beforeAll(async () => {
         User.findOne = jest.fn().mockReturnValue({
           ...user1,
-          select: jest.fn().mockReturnThis(),
           matchPassword: jest.fn().mockResolvedValue(true),
         });
 

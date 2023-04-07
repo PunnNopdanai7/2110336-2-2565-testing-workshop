@@ -55,8 +55,6 @@ exports.updateUserRole = async (req, res) => {
       data: updatedUser,
     });
   } catch (error) {
-    console.error(error);
-
     const { message } = error ?? {};
     res.status(500).json({
       success: false,
