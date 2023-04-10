@@ -5,4 +5,4 @@ cp ./src/env.example ./src/.env
 cp ./env.example .env
 
 echo "Starting docker-compose..."
-sudo docker-compose --env-file .env up -d --build
+sudo docker-compose --env-file .env up -d
