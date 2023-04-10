@@ -27,6 +27,15 @@ Upon running the app, data for `6 users will be upserted` into the database. The
 2. Create `.env` file in the root directory. (Copy the contents of `.env.example` in the `root directory` and paste it into .env)
 3. In the root directory, run `docker-compose --env-file .env up -d --build` to start the app
 
+## Jest Testing
+
+The app uses `Jest` for unit testing. The test files are located in the `src/controllers/__spec__` directory. To run the tests, run `npm run test`, `npm run  test:watch`, or `npm run test:cov` in the `src` directory.
+
+1. The `test:cov` script will generate a `coverage` directory in the `src` directory. This directory contains the test coverage report.
+2. The `test:watch` script will run the tests in watch mode.
+3. The `test` script will run the tests once.
+4. You do not need to start the app or the database to run the tests.
+
 ## Notes
 
 - After finishing the assignment, do not forget to stop the containers.
