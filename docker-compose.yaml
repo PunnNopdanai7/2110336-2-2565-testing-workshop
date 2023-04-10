@@ -31,7 +31,6 @@ services:
       - se-net
     volumes:
       - mongo_vol:/data/db
-      - ./users.json:/users.json
     ports:
       - "27017:27017"
     healthcheck:
