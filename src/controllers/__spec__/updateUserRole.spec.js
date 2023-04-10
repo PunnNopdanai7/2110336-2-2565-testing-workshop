@@ -1,8 +1,11 @@
 const request = require("supertest");
 const app = require("../../app");
+
+// model and enum
 const User = require("../../models/user.model");
 const userRoles = require("../../utils/enum");
 
+// Mock the User model
 jest.mock("../../models/user.model");
 
 const mockedUser1 = {
